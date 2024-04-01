@@ -16,6 +16,10 @@ public class LivePotatoReactionRenderer {
     private static boolean reversed = false;
 
     public static void render(GuiGraphics graphics, float tickDelta) {
+        if (Minecraft.getInstance().screen != null) {
+            return;
+        }
+
         LocalPlayer player = Minecraft.getInstance().player;
 
         int width = graphics.guiWidth();
