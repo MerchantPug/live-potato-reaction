@@ -3,9 +3,11 @@ package net.merchantpug.livepotatoreaction;
 import net.fabricmc.api.ClientModInitializer;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.merchantpug.livepotatoreaction.render.LivePotatoReactionRenderer;
 import net.merchantpug.livepotatoreaction.render.LivePotatoReactionScreens;
+import net.merchantpug.livepotatoreaction.render.model.PotatoHorseModel;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +22,7 @@ public class LivePotatoReaction implements ClientModInitializer {
 		ClientPlayConnectionEvents.DISCONNECT.register((handler, sender) -> {
             LivePotatoReactionScreens.HURT.resetHurtAmount();
         });
+		EntityModelLayerRegistry.registerModelLayer(PotatoHorseModel.LAYER_LOCATION, PotatoHorseModel::createBodyLayer);
 	}
 
 	public static ResourceLocation asResource(String path) {

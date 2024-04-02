@@ -31,16 +31,24 @@ public class LivePotatoReactionRenderer {
         LiveReactionScreen screen = LiveReactionScreenManager.getOrReplaceActiveScreen(player);
 
         graphics.pose().pushPose();
+
         graphics.pose().translate(x, y, 0);
         graphics.pose().scale(1.5F, 1.5F, 1.5F);
-        graphics.blit(screen.getBackgroundTexture(), 6, 15, 0, 0, 62, 33, 64, 64);
 
         graphics.pose().pushPose();
-        graphics.pose().translate(6 * 1.5F, 15 * 1.5F, 0);
+        graphics.pose().translate(0, 0, -2000);
+        graphics.blit(screen.getBackgroundTexture(), 6, 15, 0, 0, 62, 33, 64, 64);
+        graphics.pose().popPose();
+
+        graphics.pose().pushPose();
+        graphics.pose().translate(6, 15, -1000);
         screen.render(graphics, deltaTime);
         graphics.pose().popPose();
 
+        graphics.pose().pushPose();
+        graphics.pose().translate(0, 0, 1000);
         graphics.blit(TV_TEXTURE, 0, 0, 0, 0, 74, 54, 128, 64);
+        graphics.pose().popPose();
 
         graphics.pose().pushPose();
         float translation = (reversed ? -deltaTime : deltaTime) / 16;
@@ -50,7 +58,7 @@ public class LivePotatoReactionRenderer {
         } else if (liveReactionTranslation < -0.745) {
             reversed = false;
         }
-        graphics.pose().translate(0, liveReactionTranslation, 0);
+        graphics.pose().translate(0, liveReactionTranslation, 2000);
         graphics.blit(TV_TEXTURE, 4, 45, 0, 54, 65, 10, 128, 64);
         graphics.pose().popPose();
 

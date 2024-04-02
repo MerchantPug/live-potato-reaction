@@ -9,7 +9,7 @@ public interface LiveReactionScreen {
     int SCREEN_WIDTH = 62;
     int SCREEN_HEIGHT = 33;
 
-    void render(GuiGraphics drawContext, float tickDelta);
+    void render(GuiGraphics graphics, float tickDelta);
 
     ResourceLocation getBackgroundTexture();
 

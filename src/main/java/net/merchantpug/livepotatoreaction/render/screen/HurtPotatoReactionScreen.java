@@ -22,7 +22,7 @@ public class HurtPotatoReactionScreen implements LiveReactionScreen {
     }
 
     @Override
-    public void render(GuiGraphics drawContext, float tickDelta) {
+    public void render(GuiGraphics graphics, float tickDelta) {
         switch (hurtAmount) {
             case 10: {
 
