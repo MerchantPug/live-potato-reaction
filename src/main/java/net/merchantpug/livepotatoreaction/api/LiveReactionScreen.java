@@ -13,15 +13,15 @@ public interface LiveReactionScreen {
 
     ResourceLocation getBackgroundTexture();
 
-    boolean shouldStartRendering(LocalPlayer player);
+    boolean shouldStart(LocalPlayer player);
 
-    default void startRendering() {
+    default void start() {
 
     }
 
-    boolean shouldStopRendering(LocalPlayer player);
+    boolean shouldStop(LocalPlayer player);
 
-    default void stopRendering() {
+    default void stop() {
 
     }
 
