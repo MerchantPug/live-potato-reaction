@@ -32,7 +32,7 @@ public class DefaultPotatoReactionScreen implements LiveReactionScreen {
         graphics.pose().mulPose(Axis.YP.rotation((this.age + tickDelta) / 20.0F + this.bobOffset));
         graphics.pose().scale(64.0F, 64.0F, -64.0F);
         Minecraft.getInstance().getItemRenderer().render(potato, ItemDisplayContext.GROUND, false, graphics.pose(), graphics.bufferSource(), 15728850, OverlayTexture.NO_OVERLAY, bakedModel);
-        age += (Minecraft.getInstance().player.isSprinting() ? 6.0F : 1.0F) * tickDelta;
+        age += (Minecraft.getInstance().player.getDeltaMovement().horizontalDistance() > 0.02 ? Minecraft.getInstance().player.getSpeed() * 40 : 1.0F) * tickDelta;
     }
 
     @Override
